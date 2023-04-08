@@ -1,9 +1,22 @@
-#base needed imports
+#code  needed imports
 import subprocess
 import requests
 import yaml
+import tarfile
 
-#risky modules 
+
+# module imports for scanning 
+import devtools
+import google.auth
+import numpy
+import django
+import pandas
+import pymongo
+from bs4 import BeautifulSoup
+import nltk
+import tensorflow
+import flask
+
 
 
 
@@ -26,14 +39,12 @@ else:
 
 
 # test 3  insecure subprocess call
-
 address = "127.0.0.1"
 cmd = "ping -c 1 %s" % address
 subprocess.open(cmd, shell=True)
 
 
 # test 4 py yaml load 
-
 example = '''
 person:
 name: Joe
@@ -41,9 +52,8 @@ age: 99
 '''
 print(yaml.load(example))
 
-# test 5 unvalidated import of archive 
 
-import tarfile
+# test 5 unvalidated import of archive 
 try:
   tf = tarfile.open('upload.tar.gz')
   tf.extractall('uploads')
