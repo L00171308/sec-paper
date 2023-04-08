@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, request, session, make_response, jsonify
 from flask_session import Session
 from testfile3 import *
-# from flask_swagger_ui import get_swaggerui_blueprint
+from testfile1 import testall
+
 
 
 app = Flask(__name__)
@@ -10,17 +11,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 application = app
 
-# SWAGGER_URL = '/swagger'
-# API_URL = '/static/swagger.json'
-# SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
-#     SWAGGER_URL,
-#     API_URL,
-#     config={
-#         'app_name': "test_api"
-#     }
-# )
-# app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
+testall()
 
 @app.route("/")
 def main():
